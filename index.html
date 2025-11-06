@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>IslandCraft - Premium Minecraft SMP Server</title>
+  <meta name="description" content="Tritt dem besten Minecraft SMP Server bei! IslandCraft bietet ein einzigartiges Survival-Erlebnis mit einer freundlichen Community."/>
+  <meta name="keywords" content="Minecraft, SMP, Server, Survival, Community, IslandCraft"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="icon" type="image/png" href="island_logo.png"/>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <img src="island_logo.png" alt="IslandCraft" class="loading-logo">
+      <div class="loading-text">IslandCraft</div>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+      <div class="loading-subtitle">Lade das beste SMP-Erlebnis...</div>
+    </div>
+  </div>
+
+  <!-- Enhanced Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="nav-brand">
+        <img src="island_logo.png" alt="IslandCraft" class="nav-logo">
+        <span class="nav-title">IslandCraft</span>
+      </a>
+      
+      <div class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+        <a href="#join" class="nav-link"><i class="fas fa-play"></i> Beitreten</a>
+        <a href="#team" class="nav-link"><i class="fas fa-users"></i> Team</a>
+        <a href="#rules" class="nav-link"><i class="fas fa-gavel"></i> Regeln</a>
+      </div>
+      
+      <div class="nav-actions">
+        <a class="btn btn-discord" href="https://discord.gg/TTSg6SQNNz" target="_blank" rel="noopener">
+          <i class="fab fa-discord"></i> Discord
+        </a>
+        <a class="btn btn-primary" href="https://discord.gg/TTSg6SQNNz" target="_blank" rel="noopener">
+          <i class="fas fa-user-plus"></i> Bewerben
+        </a>
+      </div>
+      
+      <button class="nav-toggle" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>  <!-- E
+nhanced Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-background">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <canvas class="hero-canvas" id="heroCanvas"></canvas>
+    </div>
+    
+    <div class="container hero-content">
+      <div class="hero-status left">
+        <div class="status-card animate-slide-left">
+          <div class="status-icon">🎮</div>
+          <div class="status-info">
+            <div class="status-label">Minecraft Server</div>
+            <div class="status-count" id="mcCount">Nicht verbunden</div>
+            <div class="status-address">islandcraft.cluehosting.de</div>
+            <div class="status-indicator online"></div>
+          </div>
+          
+          <!-- Online Players Display -->
+          <div class="online-players" id="onlinePlayers">
+            <div class="players-header">
+              <span class="players-title">Online Spieler</span>
+              <span class="players-count" id="playersCount">0</span>
+            </div>
+            <div class="players-list" id="playersList">
+              <div class="no-players">Keine Spieler online</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-center animate-fade-up">
+        <img src="island_logo.png" class="hero-logo animate-float" alt="IslandCraft"/>
+        <h1 class="hero-title">
+          <span class="title-gradient">Island</span><span class="title-accent">Craft</span>
+        </h1>
+        <p class="hero-subtitle">
+          Erlebe das ultimative Minecraft SMP-Abenteuer mit einer einzigartigen Community, 
+          spannenden Events und endlosen Möglichkeiten zum Bauen und Erkunden.
+        </p>
+        
+        <div class="hero-features">
+          <span class="feature-tag">⚔️ Survival</span>
+          <span class="feature-tag">👥 Community</span>
+          <span class="feature-tag">🎉 Events</span>
+          <span class="feature-tag">💎 Economy</span>
+        </div>
+        
+        <div class="hero-actions">
+          <a href="#join" class="btn btn-primary btn-large">
+            <i class="fas fa-play"></i> Jetzt spielen
+          </a>
+          <a href="https://discord.gg/TTSg6SQNNz" class="btn btn-outline btn-large" target="_blank">
+            <i class="fab fa-discord"></i> Discord beitreten
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-status right">
+        <div class="status-card animate-slide-right">
+          <div class="status-icon">💬</div>
+          <div class="status-info">
+            <div class="status-label">Discord Server</div>
+            <div class="status-count">
+              <a href="https://discord.gg/TTSg6SQNNz" target="_blank" class="discord-join-btn">
+                <i class="fab fa-discord"></i> Jetzt beitreten
+              </a>
+            </div>
+            <div class="status-address">discord.gg/TTSg6SQNNz</div>
+            <div class="status-indicator online"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-scroll">
+      <div class="scroll-indicator">
+        <span>Scroll für mehr</span>
+        <div class="scroll-arrow">⬇️</div>
+      </div>
+    </div>
+  </section> 
+ <main>
+    <!-- Join Section -->
+    <section class="section" id="join">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">So kannst du beitreten</h2>
+          <p class="section-subtitle">Folge diesen einfachen Schritten und starte dein Abenteuer</p>
+        </div>
+        
+        <div class="join-content">
+          <div class="join-steps">
+            <div class="step-item animate-fade-up">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Minecraft Java starten</h4>
+                <p>Öffne Minecraft Java Edition (Version 1.21 - 1.21.10)</p>
+                <div class="step-note">💡 Stelle sicher, dass du die richtige Version hast</div>
+              </div>
+            </div>
+            
+            <div class="step-item animate-fade-up-delay">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Server hinzufügen</h4>
+                <p>Gehe zu Multiplayer → Server hinzufügen</p>
+                <div class="server-input">
+                  <input type="text" value="islandcraft.cluehosting.de" class="server-ip-input" readonly>
+                  <button class="copy-btn" onclick="copyServerIP()">
+                    <i class="fas fa-copy"></i> Kopieren
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="step-item animate-fade-up-delay-2">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Verbinden & Spielen</h4>
+                <p>Klicke auf "Fertig" und dann "Dem Server beitreten"</p>
+                <div class="step-note">🎮 Bereit für dein Abenteuer!</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="join-preview">
+            <div class="minecraft-window">
+              <div class="window-header">
+                <div class="window-controls">
+                  <div class="control close"></div>
+                  <div class="control minimize"></div>
+                  <div class="control maximize"></div>
+                </div>
+                <div class="window-title">Minecraft 1.21.10 - Multiplayer</div>
+              </div>
+              <div class="window-content">
+                <div class="server-list">
+                  <div class="server-entry active">
+                    <div class="server-icon">🏝️</div>
+                    <div class="server-info">
+                      <div class="server-name">IslandCraft SMP</div>
+                      <div class="server-address">islandcraft.cluehosting.de</div>
+                      <div class="server-status online" id="serverPlayerCount">Online - Nicht verbunden</div>
+                    </div>
+                    <div class="ping-bars">
+                      <div class="bar active"></div>
+                      <div class="bar active"></div>
+                      <div class="bar active"></div>
+                      <div class="bar active"></div>
+                      <div class="bar"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+ 
+   <!-- Enhanced Team Section -->
+    <section class="section" id="team">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Unser Team</h2>
+          <p class="section-subtitle">Die Menschen, die IslandCraft zu etwas Besonderem machen</p>
+        </div>
+        
+        <div class="team-grid">
+          <!-- Inhaber -->
+          <div class="member-card animate-fade-up">
+            <div class="member-info">
+              <h3 class="member-name">clashbauer</h3>
+              <div class="member-role">
+                <span class="role-badge owner">
+                  <i class="fas fa-crown"></i> Inhaber
+                </span>
+              </div>
+              <p class="member-description">
+                @Owner I clashbauer - Gründer und Visionär von IslandCraft.
+              </p>
+            </div>
+          </div>
+
+          <!-- Co-Owner -->
+          <div class="member-card animate-fade-up-delay">
+            <div class="member-info">
+              <h3 class="member-name">wizard</h3>
+              <div class="member-role">
+                <span class="role-badge co-owner">
+                  <i class="fas fa-star"></i> Co-Owner
+                </span>
+              </div>
+              <p class="member-description">
+                @Co Owner I wizard - Rechte Hand des Owners.
+              </p>
+            </div>
+          </div>
+
+          <!-- Teamleitung - FREI -->
+          <div class="member-card animate-fade-up-delay-2 position-free">
+            <div class="member-info">
+              <h3 class="member-name">Teamleitung</h3>
+              <div class="member-role">
+                <span class="role-badge teamleitung">
+                  <i class="fas fa-users"></i> FREI
+                </span>
+              </div>
+              <p class="member-description">
+                Position verfügbar - Bewirb dich jetzt!
+              </p>
+            </div>
+          </div>
+
+          <!-- Admin - FREI -->
+          <div class="member-card animate-fade-up position-free">
+            <div class="member-avatar">
+              <div class="avatar-img">?</div>
+              <div class="member-status offline"></div>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Admin</h3>
+              <div class="member-role">
+                <span class="role-badge admin">
+                  <i class="fas fa-shield"></i> FREI
+                </span>
+              </div>
+              <p class="member-description">
+                Position verfügbar - Bewirb dich jetzt!
+              </p>
+            </div>
+          </div>
+
+          <!-- Test Admin - FREI -->
+          <div class="member-card animate-fade-up-delay position-free">
+            <div class="member-avatar">
+              <div class="avatar-img">?</div>
+              <div class="member-status offline"></div>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Test Admin</h3>
+              <div class="member-role">
+                <span class="role-badge test-admin">
+                  <i class="fas fa-shield-alt"></i> FREI
+                </span>
+              </div>
+              <p class="member-description">
+                Position verfügbar - Bewirb dich jetzt!
+              </p>
+            </div>
+          </div>
+
+          <!-- Developer -->
+          <div class="member-card animate-fade-up-delay-2">
+            <div class="member-info">
+              <h3 class="member-name">clashbauer</h3>
+              <div class="member-role">
+                <span class="role-badge developer">
+                  <i class="fas fa-code"></i> Developer
+                </span>
+              </div>
+              <p class="member-description">
+                @Owner I clashbauer - Entwickelt die Server-Features.
+              </p>
+            </div>
+          </div>
+
+          <!-- Developer Coco -->
+          <div class="member-card animate-fade-up">
+            <div class="member-avatar">
+              <div class="avatar-img">C</div>
+              <div class="member-status away"></div>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Coco</h3>
+              <div class="member-role">
+                <span class="role-badge developer">
+                  <i class="fas fa-code"></i> Developer
+                </span>
+              </div>
+              <p class="member-description">
+                @Developer I Coco - Unterstützt bei der Entwicklung.
+              </p>
+            </div>
+          </div>
+
+          <!-- Test Developer - FREI -->
+          <div class="member-card animate-fade-up-delay position-free">
+            <div class="member-avatar">
+              <div class="avatar-img">?</div>
+              <div class="member-status offline"></div>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Test Developer</h3>
+              <div class="member-role">
+                <span class="role-badge test-developer">
+                  <i class="fas fa-laptop-code"></i> FREI
+                </span>
+              </div>
+              <p class="member-description">
+                Position verfügbar - Bewirb dich jetzt!
+              </p>
+            </div>
+          </div> 
+         <!-- Moderator -->
+          <div class="member-card animate-fade-up-delay-2">
+            <div class="member-avatar">
+              <div class="avatar-img">E</div>
+              <div class="member-status online"></div>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">its_EliasMC</h3>
+              <div class="member-role">
+                <span class="role-badge moderator">
+                  <i class="fas fa-shield-alt"></i> Moderator
+                </span>
+              </div>
+              <p class="member-description">
+                @Mod I its_EliasMC - Sorgt für Ordnung auf dem Server.
+              </p>
+            </div>
+          </div>
+
+          <!-- Test Moderator VortexGHG -->
+          <div class="member-card animate-fade-up">
+            <div class="member-avatar">
+              <div class="avatar-img">V</div>
+              <div class="member-status online"></div>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">VortexGHG</h3>
+              <div class="member-role">
+                <span class="role-badge test-mod">
+                  <i class="fas fa-user-shield"></i> Test Moderator
+                </span>
+              </div>
+              <p class="member-description">
+                @Test Mod I VortexGHG - Aufstrebender Moderator.
+              </p>
+            </div>
+          </div>
+
+          <!-- Test Moderator Luca -->
+          <div class="member-card animate-fade-up-delay">
+            <div class="member-avatar">
+              <div class="avatar-img">L</div>
+              <div class="member-status away"></div>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Luca</h3>
+              <div class="member-role">
+                <span class="role-badge test-mod">
+                  <i class="fas fa-user-shield"></i> Test Moderator
+                </span>
+              </div>
+              <p class="member-description">
+                @Test Mod I Luca - Neues Teammitglied mit Potenzial.
+              </p>
+            </div>
+          </div>
+
+          <!-- Live AccBuilder -->
+          <div class="member-card animate-fade-up-delay-2">
+            <div class="member-avatar">
+              <div class="avatar-img">J</div>
+              <div class="member-status online"></div>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">JulienCamera</h3>
+              <div class="member-role">
+                <span class="role-badge builder">
+                  <i class="fas fa-hammer"></i> Live AccBuilder
+                </span>
+              </div>
+              <p class="member-description">
+                @Builder I JulienCamera - Erstellt beeindruckende Builds.
+              </p>
+            </div>
+          </div>
+
+          <!-- Supporter Cynnessa -->
+          <div class="member-card animate-fade-up">
+            <div class="member-avatar">
+              <div class="avatar-img">C</div>
+              <div class="member-status online"></div>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Cynnessa_MD</h3>
+              <div class="member-role">
+                <span class="role-badge supporter">
+                  <i class="fas fa-heart"></i> Supporter
+                </span>
+              </div>
+              <p class="member-description">
+                @Supporter I Cynnessa_MD - Unterstützt die Community.
+              </p>
+            </div>
+          </div>
+
+          <!-- Supporter Sleepy Bunny -->
+          <div class="member-card animate-fade-up-delay">
+            <div class="member-avatar">
+              <div class="avatar-img">S</div>
+              <div class="member-status away"></div>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">✯Sleepy Bunny✯</h3>
+              <div class="member-role">
+                <span class="role-badge supporter">
+                  <i class="fas fa-heart"></i> Supporter
+                </span>
+              </div>
+              <p class="member-description">
+                @Supporter I ✯Sleepy Bunny✯ - Hilft anderen Spielern.
+              </p>
+            </div>
+          </div>
+
+          <!-- Supporter Noxy -->
+          <div class="member-card animate-fade-up-delay-2">
+            <div class="member-avatar">
+              <div class="avatar-img">N</div>
+              <div class="member-status online"></div>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Noxy</h3>
+              <div class="member-role">
+                <span class="role-badge supporter">
+                  <i class="fas fa-heart"></i> Supporter
+                </span>
+              </div>
+              <p class="member-description">
+                @Supporter I Noxy - Aktiver Community-Helfer.
+              </p>
+            </div>
+          </div>
+
+          <!-- Test-Supporter - FREI -->
+          <div class="member-card animate-fade-up position-free">
+            <div class="member-avatar">
+              <div class="avatar-img">?</div>
+              <div class="member-status offline"></div>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Test-Supporter</h3>
+              <div class="member-role">
+                <span class="role-badge test-supporter">
+                  <i class="fas fa-hands-helping"></i> FREI
+                </span>
+              </div>
+              <p class="member-description">
+                Position verfügbar - Bewirb dich jetzt!
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="team-join">
+          <div class="join-team-card">
+            <div class="join-icon">🚀</div>
+            <h3>Werde Teil des Teams!</h3>
+            <p>Hast du Lust, IslandCraft mitzugestalten? Bewirb dich jetzt als Teammitglied!</p>
+            <a class="btn btn-primary" href="https://discord.gg/TTSg6SQNNz" target="_blank" rel="noopener">
+              <i class="fas fa-user-plus"></i> Jetzt bewerben
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>   
+ <!-- Server Rules Section -->
+    <section class="section" id="rules">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Serverregeln</h2>
+          <p class="section-subtitle">Wichtige Regeln für ein faires und spaßiges Spielerlebnis</p>
+        </div>
+        
+        <div class="rules-grid">
+          <div class="rule-category">
+            <h3><i class="fas fa-handshake"></i> Allgemeines</h3>
+            <ul class="rule-list">
+              <li>Respektiere alle Spieler und das Team. – Kein Mobbing, keine Beleidigungen oder Diskriminierung.</li>
+              <li>Folge den Anweisungen des Serverteams. – Admins und Moderatoren haben das letzte Wort.</li>
+              <li>Kein Cheating oder Hacking. – X-Ray, Flyhacks, AutoClicker, etc. sind strengstens verboten.</li>
+              <li>Keine Bug- oder Glitchausnutzung. – Melde Bugs sofort einem Teammitglied.</li>
+              <li>Werbung ist verboten. – Keine Werbung für andere Server, Websites oder Discords.</li>
+              <li>Kein Spam oder Flooding im Chat. – Bleib freundlich und übersichtlich.</li>
+              <li>Angemessene Namen und Skins. – Keine anstößigen Inhalte.</li>
+            </ul>
+          </div>
+
+          <div class="rule-category">
+            <h3><i class="fas fa-gamepad"></i> Ingame & Gameplay</h3>
+            <ul class="rule-list">
+              <li>Baue fair. – Kein Griefing oder mutwilliges Zerstören fremder Bauwerke.</li>
+              <li>Kein Diebstahl. – Nimm nur Items, die dir gehören.</li>
+              <li>AFK-Farmen oder Auto-Farmen mit externen Programmen ist verboten.</li>
+              <li>Lag-verursachende Farmen oder Redstone-Schaltungen sind zu vermeiden.</li>
+              <li>Kein Handel mit Echtgeld. – Nur Ingame-Währung oder Items sind erlaubt.</li>
+            </ul>
+          </div>
+
+          <div class="rule-category">
+            <h3><i class="fas fa-sword"></i> PvP & Verhalten</h3>
+            <ul class="rule-list">
+              <li>Kein Spawn-Killing oder Camping.</li>
+              <li>Fairness steht immer an erster Stelle.</li>
+            </ul>
+          </div>
+
+          <div class="rule-category">
+            <h3><i class="fas fa-comments"></i> Chat & Kommunikation</h3>
+            <ul class="rule-list">
+              <li>Kein Rassismus, Sexismus oder beleidigende Sprache.</li>
+              <li>Bleib freundlich – auch bei Streit.</li>
+              <li>Keine CAPSLOCK-Nachrichten oder Spambots.</li>
+              <li>Keine Falschangaben über Teammitglieder oder Spieler.</li>
+            </ul>
+          </div>
+
+          <div class="rule-category">
+            <h3><i class="fas fa-exclamation-triangle"></i> Strafen</h3>
+            <ul class="rule-list">
+              <li>Regelverstöße können zu Verwarnungen, Kicks, Mutes oder Bans führen.</li>
+              <li>Wiederholte oder schwere Verstöße führen zu einem permanenten Bann.</li>
+            </ul>
+          </div>
+
+          <div class="rule-category">
+            <h3><i class="fas fa-info-circle"></i> Zusatz</h3>
+            <ul class="rule-list">
+              <li>Mit dem Betreten des Servers akzeptierst du diese Regeln.</li>
+              <li>Änderungen an den Regeln können jederzeit erfolgen.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="special-rules">
+          <div class="special-rule-card warning">
+            <h4><i class="fas fa-ban"></i> Wichtige Ankündigungen</h4>
+            <p><strong>DAS TEILEN VOM BOUNTY IST UNTERSAGT UND FÜHRT ZU EINEM WARN!</strong></p>
+            <p><strong>DAS KRISTEAL SO WIE ANCHOR SIND UNTERSAGT UND FÜHREN ZU EINEM BAN VON 3 TAGEN!</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>  <!--
+ Enhanced Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-brand">
+            <img src="island_logo.png" alt="IslandCraft" class="footer-logo">
+            <h3>IslandCraft</h3>
+            <p>Das ultimative Minecraft SMP-Erlebnis für alle Spieler.</p>
+          </div>
+          <div class="footer-social">
+            <a href="https://discord.gg/TTSg6SQNNz" target="_blank" class="social-link">
+              <i class="fab fa-discord"></i>
+            </a>
+            <a href="#" class="social-link">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="#" class="social-link">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Server</h4>
+          <ul class="footer-links">
+            <li><a href="#join">Beitreten</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#rules">Regeln</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Community</h4>
+          <ul class="footer-links">
+            <li><a href="https://discord.gg/TTSg6SQNNz" target="_blank">Discord</a></li>
+            <li><a href="#rules">Regeln</a></li>
+            <li><a href="#" onclick="openModal('supportModal')">Support</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Server Info</h4>
+          <div class="server-info">
+            <div class="info-item">
+              <span class="label">IP:</span>
+              <span class="value">islandcraft.cluehosting.de</span>
+            </div>
+            <div class="info-item">
+              <span class="label">Version:</span>
+              <span class="value">1.21 - 1.21.10</span>
+            </div>
+            <div class="info-item">
+              <span class="label">Status:</span>
+              <span class="value online" id="footerStatus">Online</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          <span>© 2024 IslandCraft. Alle Rechte vorbehalten.</span>
+          <span class="footer-note">Nicht mit Mojang Studios verbunden.</span>
+        </div>
+      </div>
+    </div>
+  </footer>  <!-- Enhanced Modals -->
+
+  <div class="modal" id="applyModal" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-user-plus"></i> Team Bewerbung</h3>
+        <button class="modal-close" data-close>&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="apply-info">
+          <h4>Werde Teil unseres Teams!</h4>
+          <p>Du möchtest IslandCraft mitgestalten? Wir suchen motivierte Teammitglieder!</p>
+          
+          <div class="apply-positions">
+            <div class="position">
+              <h5><i class="fas fa-users"></i> Teamleitung</h5>
+              <p>Führe das Team und koordiniere die Aktivitäten.</p>
+            </div>
+            <div class="position">
+              <h5><i class="fas fa-shield"></i> Admin</h5>
+              <p>Verwalte den Server und unterstütze die Community.</p>
+            </div>
+            <div class="position">
+              <h5><i class="fas fa-shield-alt"></i> Test Admin</h5>
+              <p>Sammle Erfahrungen als Administrator.</p>
+            </div>
+            <div class="position">
+              <h5><i class="fas fa-laptop-code"></i> Test Developer</h5>
+              <p>Entwickle Plugins und Features für den Server.</p>
+            </div>
+            <div class="position">
+              <h5><i class="fas fa-hands-helping"></i> Test-Supporter</h5>
+              <p>Hilf neuen Spielern und unterstütze die Community.</p>
+            </div>
+          </div>
+          
+          <div class="apply-requirements">
+            <h5>Voraussetzungen:</h5>
+            <ul>
+              <li>Mindestens 16 Jahre alt</li>
+              <li>Aktiv auf dem Server</li>
+              <li>Freundlich und hilfsbereit</li>
+              <li>Discord verfügbar</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-close>Schließen</button>
+        <a href="https://discord.gg/TTSg6SQNNz" class="btn btn-primary" target="_blank">
+          <i class="fab fa-discord"></i> Bewerbung im Discord
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Container -->
+  <div class="notification-container" id="notificationContainer"></div>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Cookie Banner -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <h4>🍪 Cookies</h4>
+        <p>Wir verwenden Cookies, um deine Erfahrung zu verbessern. Durch die Nutzung unserer Website stimmst du der Verwendung von Cookies zu.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="btn btn-secondary btn-small" onclick="declineCookies()">Ablehnen</button>
+        <button class="btn btn-primary btn-small" onclick="acceptCookies()">Akzeptieren</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
