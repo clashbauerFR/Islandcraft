@@ -506,6 +506,12 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
   
+  // Initialize countdowns
+  if (document.querySelector('.event-countdown')) {
+    updateCountdowns();
+    setInterval(updateCountdowns, 1000);
+  }
+  
   // Zeige Demo-Spieler nach 3 Sekunden (nur für Testzwecke)
   setTimeout(showDemoPlayers, 3000);
 });
@@ -514,6 +520,56 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('error', (e) => {
   console.error('🚨 JavaScript Error:', e.error);
 });
+
+// ===== EVENT COUNTDOWN =====
+function updateCountdowns() {
+  const countdowns = document.querySelectorAll('.event-countdown');
+  
+  countdowns.forEach(countdown => {
+    const targetDate = new Date(countdown.dataset.date).getTime();
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+    
+    if (distance < 0) {
+      // Event has passed
+      countdown.innerHTML = '<div style="text-align: center; width: 100%; color: var(--text-muted);">Event beendet</div>';
+      const badge = countdown.closest('.event-card').querySelector('.event-badge');
+      if (badge) {
+        badge.textContent = 'Beendet';
+        badge.classList.remove('upcoming', 'live');
+        badge.classList.add('ended');
+      }
+      return;
+    }
+    
+    // Calculate time units
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Update countdown display
+    const daysEl = countdown.querySelector('[data-days]');
+    const hoursEl = countdown.querySelector('[data-hours]');
+    const minutesEl = countdown.querySelector('[data-minutes]');
+    const secondsEl = countdown.querySelector('[data-seconds]');
+    
+    if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
+    if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+    if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+    if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
+    
+    // Check if event is live (within 1 hour)
+    if (distance < 3600000 && distance > 0) {
+      const badge = countdown.closest('.event-card').querySelector('.event-badge');
+      if (badge) {
+        badge.textContent = 'Live';
+        badge.classList.remove('upcoming', 'ended');
+        badge.classList.add('live');
+      }
+    }
+  });
+}
 
 // ===== SUCCESS MESSAGE =====
 console.log('🏝️ IslandCraft Website loaded successfully with enhanced features!');
